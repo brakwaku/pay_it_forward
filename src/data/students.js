@@ -16,7 +16,8 @@
 // Resolve photos at build time. Missing files fall back to the initials avatar.
 let photoModules = {};
 try {
-  const ctx = require.context('../assets/students', false, /\.(png|jpe?g|webp)$/);
+  // Case-insensitive so uppercase extensions (.PNG, .JPG) are picked up too.
+  const ctx = require.context('../assets/students', false, /\.(png|jpe?g|webp)$/i);
   ctx.keys().forEach((key) => {
     photoModules[key.replace('./', '')] = ctx(key);
   });
@@ -38,7 +39,7 @@ export const students = [
     university: 'Bowling Green State University',
     major: "Master's in Statistics",
     graduated: 'Graduated May 2025',
-    photo: null,
+    photo: 'Wanangwa M. .jpeg',
     featured: true,
     published: true,
     intro:
@@ -105,7 +106,7 @@ Wanangwa`,
     cohort: 2024,
     university: null,
     major: null,
-    photo: null,
+    photo: 'Grace_M.jpeg',
     published: true,
     intro: null,
     story: null,
@@ -120,7 +121,7 @@ Wanangwa`,
     cohort: 2024,
     university: null,
     major: null,
-    photo: null,
+    photo: 'Euloge_A_Jared.jpeg',
     published: true,
     intro: null,
     story: null,
@@ -210,7 +211,7 @@ My story is about hope, faith, and second chances. It's about believing that eve
     university: 'Brigham Young University–Idaho',
     major: null,
     graduated: 'Graduated December 2025',
-    photo: null,
+    photo: 'Monica.jpeg',
     published: true,
     intro:
       'From Ghana to Rexburg. She credits consistency and focus — and the ability to keep going when things get difficult.',
@@ -232,7 +233,7 @@ Looking ahead, I hope to build a meaningful career where creativity and problem-
     cohort: 2025,
     university: 'Brigham Young University (Provo)',
     major: 'Master of Public Administration',
-    photo: null,
+    photo: 'Divine_Library.jpeg',
     featured: true,
     published: true,
     intro:
@@ -264,7 +265,7 @@ Divine Irakoze`,
     cohort: 2025,
     university: 'Brigham Young University–Idaho',
     major: 'Business Management',
-    photo: null,
+    photo: 'Carlos_Ramirez.jpg',
     published: true,
     intro:
       'His parents — a hairstylist and an aluminium fabricator — taught him the value of hard work. He cuts hair on campus to pay his way.',
@@ -286,7 +287,7 @@ I already received the Let's Help The Next need-based scholarship. This helps me
     cohort: 2025,
     university: 'Brigham Young University–Idaho',
     major: 'Political Science, Foreign Affairs',
-    photo: null,
+    photo: 'Fiori.PNG',
     published: true,
     intro:
       'From a small town in northern Albania: "Even in the smallest places, you can dream big — but you also have to work really hard for it."',
@@ -312,7 +313,7 @@ Because when one of us rises, we all do.`,
     cohort: 2025,
     university: 'Brigham Young University–Idaho',
     major: 'Apparel',
-    photo: null,
+    photo: 'Zhaoni.jpeg',
     published: true,
     intro:
       'Her father — her best friend and her financial support — passed away the year she came to BYU-Idaho. She came anyway, and keeps her GPA above 3.8.',
@@ -339,7 +340,7 @@ Nini`,
     cohort: 2025,
     university: 'Brigham Young University–Idaho',
     major: 'Software Engineering',
-    photo: null,
+    photo: 'Gabriel_W.PNG',
     published: true,
     intro:
       'He was $800 short on tuition with no way to close the gap before the academic scholarship review. That $800 was the whole semester.',
@@ -361,7 +362,7 @@ I believe that starting in fall I'm going to start receiving my academic scholar
     cohort: 2025,
     university: 'Brigham Young University–Idaho',
     major: 'Pre-Nursing',
-    photo: null,
+    photo: 'Hasina.jpg',
     published: true,
     intro:
       'A student parent. Twenty hours of campus work a week does not cover rent — let alone formula, diapers and wipes.',
@@ -399,13 +400,13 @@ Thank you so much. Let's Help The Next.`,
   },
   {
     slug: 'noble',
-    name: 'Noble',
+    name: 'Noble Danso',
     country: 'Ghana',
     flag: '🇬🇭',
     cohort: 2025,
     university: null,
     major: null,
-    photo: null,
+    photo: 'Noble_Danso.jpeg',
     published: true,
     intro:
       'The scholarship bought him something he could not otherwise afford: time to focus on his studies.',
@@ -457,7 +458,7 @@ And I'm so grateful for the help and the processes that she took me through to r
     cohort: 2026,
     university: 'Brigham Young University',
     major: null,
-    photo: null,
+    photo: 'Chukwudi_Emmanuel.jpeg',
     published: true,
     intro:
       '"I hope to honor that trust through hard work, integrity, and service to others."',
@@ -480,7 +481,7 @@ Chukwudi Emmanuel Ewa`,
     cohort: 2026,
     university: 'Brigham Young University–Idaho',
     major: 'BS Accounting',
-    photo: null,
+    photo: 'RV_James_Vegamora.jpg',
     featured: true,
     published: true,
     intro:
@@ -506,7 +507,7 @@ RV James Vegamora`,
     cohort: 2026,
     university: null,
     major: null,
-    photo: null,
+    photo: 'Tamia_Mavunga.jpg',
     published: true,
     intro:
       '"This scholarship is more than just financial assistance; it is an encouragement."',
@@ -533,7 +534,7 @@ Tamia Mavunga`,
     cohort: 2026,
     university: 'Brigham Young University–Hawaii',
     major: 'Business Management, Finance',
-    photo: null,
+    photo: 'Luo-Hao_Chen.jpg',
     published: true,
     intro:
       'Two on-campus internships and the CFA Research Challenge left him unable to work the 19 hours a week his balance required.',
